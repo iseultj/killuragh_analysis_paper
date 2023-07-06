@@ -1,0 +1,33 @@
+## collection of commands for post-processing and analysis of assembly
+
+# need to run these in various different conda envs, so this is not a script
+
+# 1. Filter contigs for minimum length 1kbp
+# within Concoct directory
+python /path/to/miniconda3/envs/desman_env/bin/LengthFilter.py ../Assembly/killuragh.contigs.c10k.fa -m 1000 > final_contigs_gt100_c10k.fa
+
+# 2. Split bins
+mkdir -p ../Split
+cd ../Split
+wait
+path/to/miniconda3/envs/desman_env/bin/SplitClusters.pl ../Concoct/final_contigs_gt1000_c10k.fa ../Concoct/clustering_gt1000.csv 
+wait
+# Run checkm in checkm conda environment
+
+mkdir -p ../checkm/bins
+cd ../checkm
+cp ../Split/*fa bins
+
+wait
+
+checkm lineage_wf -t $threads -x fa bins/ checkm_out/ 
+
+wait
+
+checkm qa checkm_out/lineage.ms checkm_out/ --out_format 2 
+
+## Classification: mid- and high-quality bins (manual filtering)
+# in conda env gtdbtk
+
+gtdbtk classify_wf --cpus $cpus --genome_dir $filtered_bins_dir -x fa --out_dir gtdbtk_out/
+
