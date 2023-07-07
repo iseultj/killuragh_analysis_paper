@@ -12,7 +12,7 @@ Where appropriate, scripts are available in ./scripts directory; otherwise one-l
 
 Sequencing data generated as part of this project is archived on the ENA (Accession: PRJEB64128).
 
-Intermediate data files are archived on Zenodo (doi: XXXXXX)
+Intermediate data files are archived on Zenodo (doi: https://doi.org/10.5281/zenodo.8117412)
 
 This code repository is organised assuming that the ./data directory is structured identically to the archive on Zenodo. 
 
