@@ -1,6 +1,6 @@
-# Analysis pipeline for "Ancient genomes from 4,000 year old remains reveal deep diversity and recent adaptive episodes for human oral pathobionts"
+# Analysis pipeline for "Ancient genomes from Bronze Age remains reveal deep diversity and recent adaptive episodes for human oral pathobionts"
 
-This file outlines all steps and commands needed to reproduce the analysis in this paper: XXXX.
+This file outlines all steps and commands needed to reproduce the analysis in the paper "Ancient genomes from Bronze Age remains reveal deep diversity and recent adaptive episodes for human oral pathobionts".
 
 Where appropriate, scripts are available in ./scripts directory; otherwise one-line commands are outlined below. 
 
