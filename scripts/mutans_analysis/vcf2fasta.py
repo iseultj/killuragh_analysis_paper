@@ -7,7 +7,7 @@
 
 
 import sys, os, io
-n_samples=sys.argv[1]
+n_samples=int(sys.argv[1])
 
 with open('merged_tabbed.vcf') as f:
 	for i in range(3,n_samples):
