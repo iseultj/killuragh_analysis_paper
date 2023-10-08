@@ -19,7 +19,7 @@ df$Gene <- factor(df$Gene, levels=c("nanH","siaHI","susB","hexA","mgsA","oxyR","
                                     "prtH","miropin","pse","tfsA","tfsB","porU","porT","sov","porK",
                                     "bspA","bspB","karilysin","miropsin-1","miropsin-2","mirolase","mirolysin","forsilysin"))
 # filter out bad samples
-df <- df %>% filter(id !="OME003") %>% filter(id != "CS07") %>% filter(id != "CS09") %>% filter(id != "CS10") %>% filter(id != "CS12") %>% filter(id != "CS39")%>% filter(id != "VLC004")
+df <- df %>% filter(id !="OME003") %>% filter(id != "CS07") %>% filter(id != "CS09") %>% filter(id != "CS10") %>% filter(id != "CS12") %>% filter(id != "CS39")
 
 
 # normalise reads
@@ -58,7 +58,7 @@ ggplot(counts, aes(x=Coverage,y=Count)) + geom_point() + theme_bw() + facet_grid
 df$id <- factor(df$id, levels=(c("OH2617_COT023","GOY005","KGH1","KGH2","2H10","TAF008","OAK005","G12",
                                  "SMD046","SMD051","WIG001","LM_213_T","CS23","CS37",
                                  "CS31","CS32","UB22","VLC009","ATCC43037",
-                                 "WW10960","3313","KS16","9610","UB4","WW11663","UB20")))
+                                 "WW10960","3313","KS16","9610","UB4","WW11663","UB20","VLC004")))
 
 
 ggplot(df, aes(y=id, x=Gene, fill=presence)) + geom_tile() +
@@ -71,7 +71,13 @@ df <- df %>% filter(ID != "OH2617_COT023")
 df$id <- factor(df$id, levels=(c("GOY005","KGH1","KGH2","2H10","TAF008","OAK005","G12",
                                  "SMD046","SMD051","WIG001","LM_213_T","CS23","CS37",
                                  "CS31","CS32","UB22","VLC009","ATCC43037",
-                                 "WW10960","3313","KS16","9610","UB4","WW11663","UB20")))
+                                 "WW10960","3313","KS16","9610","UB4","WW11663","UB20","VLC004")))
+
+# Reorder genes for clarity in figure
+df$Gene <- factor(df$Gene, levels=c("oxyR","nanH","siaHI","susB","hexA","mgsA","dppIV","BFO_RS01890",
+                                    "pse","tfsA","tfsB","porU","porT","sov","porK",
+                                    "bspA","bspB","prtH","karilysin","miropsin-1","miropsin-2",
+                                    "mirolase","mirolysin","forsilysin","miropin"))
 
 ggplot(df, aes(y=id, x=Gene, fill=presence)) + geom_tile() +
   scale_fill_gradient2(low="white", midpoint=0.5, mid="#E2D8D3FF", high="black") +
