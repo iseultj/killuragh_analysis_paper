@@ -236,7 +236,7 @@ IQtree plotting:
 ### d. Mutacin Simulations
 
 - data: input for simulations in `./data/intermediate/mutans/mutacin_simulation/`
-- scripts: run simulation script `./scripts/mutans_analysis/gargammel_sims.100_each.sh` in mutacin simulation directory
+- scripts: run simulation script `./scripts/mutans_analysis/gargammel_1000_sims_for_all.sh` in mutacin simulation directory
 - Align output fastqs to pangenome reference as in reference genome alignment section (**Part 1**)
 
 ## Part 5: *T. forsythia* analysis
