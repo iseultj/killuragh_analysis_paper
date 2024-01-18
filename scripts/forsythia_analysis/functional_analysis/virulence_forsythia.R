@@ -27,7 +27,7 @@ df$normalised_reads <- df$reads_overlapping_interval/(df$nreads_total*(df$length
 
 #decide if present or absent based on normalised reads > 0.8, more than 50% covered
 
-df <- df %>% mutate(presence = if_else((normalised_reads > 0.8 & fraction_covered > 0.5),1,0))
+df <- df %>% mutate(presence = if_else(fraction_covered > 0.95, 1,if_else((normalised_reads > 0.8 & fraction_covered > 0.5),1,0)))
 
 ggplot(df, aes(x=id, y=Gene, fill=presence)) + geom_tile() +
   scale_fill_gradient2(low="white", midpoint=0.5, mid="#E2D8D3FF", high="black") +
